@@ -49,6 +49,9 @@ public class LocationActivity extends Activity {
 			}
 		});
     	
+    	// access the spinner
+    	findViewById(R.id.spnSite);
+    	
     }
             
     @Override
