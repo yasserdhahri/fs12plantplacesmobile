@@ -1,13 +1,19 @@
 package com.plantplaces;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.plantplaces.persistence.ISiteDAO;
+import com.plantplaces.persistence.SiteDAOStub;
 
 /**
  * This is the user interface logic for finding plant locations.
@@ -21,6 +27,8 @@ public class LocationActivity extends Activity {
 	private EditText edtDescription;
 	private Button btnUpload;
 	private Spinner spnSite;
+	private ISiteDAO siteDAO;
+	
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,10 @@ public class LocationActivity extends Activity {
     }
 
     private void initComponents() {
+    	// initialize the siteDAO
+    	siteDAO = new SiteDAOStub();
+    	
+    	
     	btnSaveLocation = (Button) findViewById(R.id.btnSaveLocation);
     	edtDescription = (EditText) findViewById(R.id.edtDescription);
     	btnUpload = (Button) findViewById(R.id.btnUpload);
@@ -52,6 +64,14 @@ public class LocationActivity extends Activity {
     	
     	// access the spinner
     	spnSite = (Spinner) findViewById(R.id.spnSite);
+    	
+    	ArrayList<String> allSites = siteDAO.fetchAllSites();
+    
+    	ArrayAdapter<String> siteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, allSites);
+    	
+    	// wire up an adapter that will provide values to this spinner.
+    	spnSite.setAdapter(siteAdapter);
+    	
     	
     }
             
