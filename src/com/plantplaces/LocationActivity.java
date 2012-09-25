@@ -2,11 +2,11 @@ package com.plantplaces;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 /**
@@ -20,6 +20,7 @@ public class LocationActivity extends Activity {
     private Button btnSaveLocation;
 	private EditText edtDescription;
 	private Button btnUpload;
+	private Spinner spnSite;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class LocationActivity extends Activity {
 		});
     	
     	// access the spinner
-    	findViewById(R.id.spnSite);
+    	spnSite = (Spinner) findViewById(R.id.spnSite);
     	
     }
             
