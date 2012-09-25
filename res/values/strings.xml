@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">PlantPlaces12FS</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="lblLatitude">Lat:</string>
+    <string name="lblLongitude">Lng:</string>
+    <string name="lblDescription">Description:</string>
+    <string name="lblSaveLocation">Save</string>
+    <string name="lblUpload">Upload</string>
+    <string name="blank"></string>
+
+</resources>
