@@ -3,8 +3,10 @@ package com.plantplaces;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,7 +25,8 @@ import com.plantplaces.persistence.SiteDAOStub;
  */
 public class LocationActivity extends Activity {
 
-    private Button btnSaveLocation;
+    private static final int SEARCH_PLANTS_MENU = 1;
+	private Button btnSaveLocation;
 	private EditText edtDescription;
 	private Button btnUpload;
 	private Spinner spnSite;
@@ -42,7 +45,7 @@ public class LocationActivity extends Activity {
     	siteDAO = new SiteDAOStub();
     	
     	
-    	btnSaveLocation = (Button) findViewById(R.id.btnSaveLocation);
+    	btnSaveLocation =  (Button) findViewById(R.id.btnSaveLocation);
     	edtDescription = (EditText) findViewById(R.id.edtDescription);
     	btnUpload = (Button) findViewById(R.id.btnUpload);
     	    	
@@ -55,7 +58,7 @@ public class LocationActivity extends Activity {
      	
     	btnUpload.setOnClickListener(new View.OnClickListener() {
 			
-			@Override
+			// @Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				popup("You clicked Upload");
@@ -78,6 +81,9 @@ public class LocationActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_location, menu);
+        
+        menu.add(Menu.NONE, SEARCH_PLANTS_MENU, Menu.NONE, getString(R.string.mnuSearchPlants) );
+        
         return true;
     }	
     
@@ -93,11 +99,29 @@ public class LocationActivity extends Activity {
     
     class SaveLocationListener implements View.OnClickListener {
 
-		@Override
+		// @Override
 		public void onClick(View v) {
 			popup("You rang?");
 
 		}
+    	
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	// TODO Auto-generated method stub
+    	super.onOptionsItemSelected(item);
+    	
+    	int itemId = item.getItemId();
+    	
+    	if (itemId == SEARCH_PLANTS_MENU) {
+    		// bring up the Search Plants Screen.
+    		Intent searchPlantsIntent = new Intent(this, PlantSearchActivity.class);
+    		startActivity(searchPlantsIntent);
+    	}
+    	
+    	return true;
+    	
     	
     }
 }

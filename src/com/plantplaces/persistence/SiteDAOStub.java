@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class SiteDAOStub implements ISiteDAO {
 
-	@Override
+	// @Override
 	public ArrayList<String> fetchAllSites() {
 		// declare the return collection.
 		ArrayList<String> allSites = new ArrayList<String>();

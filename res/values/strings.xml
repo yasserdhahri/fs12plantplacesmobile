@@ -10,5 +10,8 @@
     <string name="lblSaveLocation">Save</string>
     <string name="lblUpload">Upload</string>
     <string name="blank"></string>
+    <string name="lblSearchPlants">Search Plants</string>
+    <string name="lblPlantName">Name:</string>
+    <string name="mnuSearchPlants">Search Plants</string>
 
 </resources>
