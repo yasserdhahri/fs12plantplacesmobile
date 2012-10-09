@@ -13,5 +13,6 @@
     <string name="lblSearchPlants">Search Plants</string>
     <string name="lblPlantName">Name:</string>
     <string name="mnuSearchPlants">Search Plants</string>
+    <string name="mnuLocation">Location</string>
 
 </resources>

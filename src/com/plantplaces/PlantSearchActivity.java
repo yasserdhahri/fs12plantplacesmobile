@@ -2,18 +2,21 @@ package com.plantplaces;
 
 import java.util.List;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 
 import com.plantplaces.persistence.IPlantDAO;
 import com.plantplaces.persistence.PlantDAOStub;
 
-public class PlantSearchActivity extends Activity {
+public class PlantSearchActivity extends PlantPlacesActivity {
 	
 	IPlantDAO plantDAO;
 	private AutoCompleteTextView actPlantName;
+	private Button btnPlantSearch;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +40,40 @@ public class PlantSearchActivity extends Activity {
 			
 			actPlantName.setAdapter(plantNamesAdapter);
 			
+			btnPlantSearch = (Button) findViewById(R.id.btnSearchPlants);
+			
+			btnPlantSearch.setOnClickListener(new View.OnClickListener() {
+				
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					invokeResults();
+				}
+			});
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
+	}
+
+	/**
+	 * Invoke the Plant Results screen.
+	 */
+	protected void invokeResults() {
+		// Create the intent.
+		Intent plantResultsIntent = new Intent(this, PlantResultsActivity.class);
+		// start the intent, and tell it we want results.
+		startActivityForResult(plantResultsIntent, 	1);
+	}
+	
+	/**
+	 * Invoked when the PlantResultScreen is complete, and returns a result to us.
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 }

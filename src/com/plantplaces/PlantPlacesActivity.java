@@ -7,7 +7,8 @@ import android.view.MenuItem;
 
 public class PlantPlacesActivity extends Activity {
 
-	static final int SEARCH_PLANTS_MENU = 1;
+	public static final int LOCATION_MENU = 2;
+	public static final int SEARCH_PLANTS_MENU = 1;
 
 	public PlantPlacesActivity() {
 		super();
@@ -18,6 +19,8 @@ public class PlantPlacesActivity extends Activity {
 	    getMenuInflater().inflate(R.menu.activity_location, menu);
 	    
 	    menu.add(Menu.NONE, SEARCH_PLANTS_MENU, Menu.NONE, getString(R.string.mnuSearchPlants) );
+
+	    menu.add(Menu.NONE, LOCATION_MENU, Menu.NONE, getString(R.string.mnuLocation));
 	    
 	    return true;
 	}
@@ -27,17 +30,38 @@ public class PlantPlacesActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onOptionsItemSelected(item);
 		
-		int itemId = item.getItemId();
-		
-		if (itemId == SEARCH_PLANTS_MENU) {
-			// bring up the Search Plants Screen.
-			Intent searchPlantsIntent = new Intent(this, PlantSearchActivity.class);
-			startActivity(searchPlantsIntent);
+		switch (item.getItemId()) {
+		case LOCATION_MENU:
+			location();
+			break;
+		case SEARCH_PLANTS_MENU:
+			searchPlants();
+			break;
+		default:
+			// this is what happens if there is not a case that matches item.getItemId().
 		}
 		
 		return true;
 		
 		
+	}
+
+	/**
+	 * Bring up the location screen.
+	 */
+	private void location() {
+		// TODO Auto-generated method stub
+		Intent locationIntent = new Intent(this, LocationActivity.class);
+		startActivity(locationIntent);
+	}
+	
+	/**
+	 * Bring up the search plants screen.
+	 */
+	private void searchPlants() {
+		// bring up the Search Plants Screen.
+		Intent searchPlantsIntent = new Intent(this, PlantSearchActivity.class);
+		startActivity(searchPlantsIntent);
 	}
 
 }
