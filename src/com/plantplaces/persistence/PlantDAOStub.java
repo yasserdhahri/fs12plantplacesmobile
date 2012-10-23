@@ -3,11 +3,14 @@ package com.plantplaces.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.util.Log;
+
 import com.plantplaces.dto.Plant;
 
 public class PlantDAOStub implements IPlantDAO {
 
 	public List<String> getPlantNames() throws Exception {
+		Log.i(getClass().getName(), "Entering getPlantNames in stub");
 		ArrayList<String> allPlantNames = new ArrayList<String>();
 		
 		allPlantNames.add("Abelia mosanensis Fragrant Abelia");	
@@ -39,6 +42,11 @@ public class PlantDAOStub implements IPlantDAO {
 		
 		// return results.
 		return allPlants;
+		
+	}
+
+	public void save(Plant plant) throws Exception {
+		// TODO Auto-generated method stub
 		
 	}
 

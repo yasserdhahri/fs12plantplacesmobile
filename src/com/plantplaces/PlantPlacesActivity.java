@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 public class PlantPlacesActivity extends Activity {
 
+	private static final int ADD_PLANT_MENU = 3;
 	public static final int LOCATION_MENU = 2;
 	public static final int SEARCH_PLANTS_MENU = 1;
 
@@ -21,6 +22,8 @@ public class PlantPlacesActivity extends Activity {
 	    menu.add(Menu.NONE, SEARCH_PLANTS_MENU, Menu.NONE, getString(R.string.mnuSearchPlants) );
 
 	    menu.add(Menu.NONE, LOCATION_MENU, Menu.NONE, getString(R.string.mnuLocation));
+	    
+	    menu.add(Menu.NONE, ADD_PLANT_MENU, Menu.NONE, getString(R.string.lblAddPlant));
 	    
 	    return true;
 	}
@@ -37,6 +40,9 @@ public class PlantPlacesActivity extends Activity {
 		case SEARCH_PLANTS_MENU:
 			searchPlants();
 			break;
+		case ADD_PLANT_MENU:
+			addPlants();
+			break;
 		default:
 			// this is what happens if there is not a case that matches item.getItemId().
 		}
@@ -44,6 +50,12 @@ public class PlantPlacesActivity extends Activity {
 		return true;
 		
 		
+	}
+
+	private void addPlants() {
+		// TODO Auto-generated method stub
+		Intent addPlantIntent = new Intent(this, PlantAddActivity.class);
+		startActivity(addPlantIntent);
 	}
 
 	/**

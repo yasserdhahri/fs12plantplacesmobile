@@ -15,4 +15,11 @@ public interface IPlantDAO {
 	
 	public List<Plant> fetchPlantsByGenus(String genus) throws Exception;
 
+	/**
+	 * Persist the plant.
+	 * 
+	 * @param plant the plant to save.
+	 * @throws Exception
+	 */
+	public void save(Plant plant) throws Exception;
 }

@@ -14,5 +14,12 @@
     <string name="lblPlantName">Name:</string>
     <string name="mnuSearchPlants">Search Plants</string>
     <string name="mnuLocation">Location</string>
+    <string name="lblGenus">Genus:</string>
+    <string name="lblSpecies">Species:</string>
+    <string name="lblCultivar">Cultivar:</string>
+    <string name="lblCommon">Common:</string>
+    <string name="lblHeight">Height:</string>
+    <string name="lblSavePlant">Save Plant</string>
+    <string name="lblAddPlant">Add Plant</string>
 
 </resources>
