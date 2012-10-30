@@ -13,7 +13,27 @@ public class Plant {
 	String cultivar;
 	String common;
 	int maxHeight;
+	// The PlantPlaces.com UID
+	int plantId;
+	// The SQLite primary key
+	long sqlId;
 	
+	public int getPlantId() {
+		return plantId;
+	}
+
+	public void setPlantId(int plantId) {
+		this.plantId = plantId;
+	}
+
+	public long getSqlId() {
+		return sqlId;
+	}
+
+	public void setSqlId(long sqlId) {
+		this.sqlId = sqlId;
+	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
