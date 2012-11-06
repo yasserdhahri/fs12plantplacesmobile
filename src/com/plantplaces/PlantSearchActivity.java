@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.plantplaces.dto.Plant;
 import com.plantplaces.persistence.IPlantDAO;
 import com.plantplaces.persistence.PlantDAOStub;
 
@@ -64,6 +66,12 @@ public class PlantSearchActivity extends PlantPlacesActivity {
 	protected void invokeResults() {
 		// Create the intent.
 		Intent plantResultsIntent = new Intent(this, PlantResultsActivity.class);
+		
+		// create a bundle to pass data to the results screen.
+		Bundle data = new Bundle();
+		data.putString(PLANT_SEARCH_TERM, actPlantName.getText().toString());
+		// add the bundle to the intent
+		plantResultsIntent.putExtras(data);
 		// start the intent, and tell it we want results.
 		startActivityForResult(plantResultsIntent, 	1);
 	}
@@ -75,6 +83,13 @@ public class PlantSearchActivity extends PlantPlacesActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
+		
+		// get the plant that was selected.
+		Bundle bundle = data.getExtras();
+		
+		Plant selectedPlant = (Plant) bundle.getSerializable(PlantResultsActivity.PLANT_RESULT);
+		
+		Toast.makeText(this, "Plant: " + selectedPlant, Toast.LENGTH_LONG).show();
 		
 	}
 }

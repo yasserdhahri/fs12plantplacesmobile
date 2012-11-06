@@ -22,6 +22,7 @@
         </activity>
         <activity android:name="PlantSearchActivity"></activity>
         <activity android:name="PlantAddActivity"></activity>
+        <activity android:name="PlantResultsActivity"></activity>
     </application>
 
 </manifest>

@@ -1,12 +1,14 @@
 package com.plantplaces.dto;
 
+import java.io.Serializable;
+
 /**
  * DTO for a plant.
  * 
  * @author jonesbr
  *
  */
-public class Plant {
+public class Plant implements Serializable {
 	
 	String genus;
 	String species;

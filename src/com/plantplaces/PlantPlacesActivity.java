@@ -10,6 +10,7 @@ public class PlantPlacesActivity extends Activity {
 	private static final int ADD_PLANT_MENU = 3;
 	public static final int LOCATION_MENU = 2;
 	public static final int SEARCH_PLANTS_MENU = 1;
+	public static final String PLANT_SEARCH_TERM = "plantSearchTerm";
 
 	public PlantPlacesActivity() {
 		super();
